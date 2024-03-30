@@ -1,0 +1,76 @@
+---
+const pages = [
+	{ name: "Home", href: "/" },
+	{ name: "About", href: "/about"},
+	{ name: "Contact", href: "/Contact", disabled: true, soonDate: "Próximamente" }
+].map((page) => ({
+	...page,
+	active: Astro.url.pathname === page.href,
+}))
+
+---
+
+<header class="h-20">
+    <nav class="group flex h-full w-full items-center justify-between px-10 lg:justify-center">
+		{
+			pages.map(({ disabled, name, href, active, soonDate }, key) => (
+				<>
+					<a
+						href={href}
+						class:list={[
+							"nav-item relative hidden h-full select-none flex-col items-center justify-center gap-1 text-center text-xl lg:flex lg:px-7 xl:px-10",
+							{ "pointer-events-none": disabled },
+							{ "current-page ": active },
+							{ "text-white": !active },
+						]}
+						id={`nav-link-${key}`}
+					>
+						<span class="z-10">{name}</span>
+						{disabled ? (
+							<span class="absolute mt-10 -skew-x-6 text-xs text-accent">{soonDate}</span>
+						) : (
+							<div class="background absolute -z-10 h-full w-full" />
+						)}
+					</a>
+				</>
+			))
+        }
+    </nav>
+
+    <div class="relative flex h-2 w-full items-center">
+        <div
+            class="h-[2px] w-full rounded-l-[30%] border-t-0"
+            style="background:linear-gradient(to right, transparent 3%, white 35%, white 100%)"
+        >
+        </div>
+        <div
+            class="h-[2px] w-full rounded-r-[30%] border-t-0 bg-white"
+            style="background:linear-gradient(to left, transparent 3%, white 35%, white 100%);"
+        >
+        </div>
+	</div>
+</header>
+
+<style>
+	.current-page:before {
+		background: var(--text-accent);
+		width: 100%;
+		content: "";
+		position: absolute;
+		top: 0;
+		left: 0;
+		height: 8px;
+	}
+
+	.current-page-mob:before {
+		background: var(--text-accent);
+		width: 10px;
+		content: "";
+		position: absolute;
+		top: 50%;
+		left: -20px;
+		height: 10px;
+		border-radius: 100%;
+		transform: translateY(-50%);
+	}
+</style>
