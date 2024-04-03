@@ -1,0 +1,29 @@
+---
+
+const contacts = [
+	{ tag: "Email", info: "Mail@gmail.com", svg: "envelope" },
+    { tag: "Telefono", info: "0000-0000000", svg: "phone" },
+    { tag: "Direccion", info: "Calle 1234, Ciudad, Pais", svg: "location-dot"}
+]
+
+---
+
+
+<footer class="px-40 py-10">
+    <script src="https://kit.fontawesome.com/1533ee2ebc.js" crossorigin="anonymous"></script>
+
+    <div class="flex flex-col space-y-2">
+        <h6 class="text-headline font-bold text-lg">Contacto</h6>
+        {
+            contacts.map(({ tag, info, svg }) => (
+                <div>
+                    <p>
+                        <i class={`fa-solid fa-${svg}`}></i>
+                        {tag}: {info}
+                    </p>
+                </div>
+            ))
+        }
+    </div>
+
+</footer>
