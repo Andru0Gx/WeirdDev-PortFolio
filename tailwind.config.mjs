@@ -6,7 +6,7 @@ export default {
 		colors: {
 			'bg': "var(--bg)",
 			'headline': "var(--headline)",
-			'text': "var(--text)",
+			'paragraph': "var(--text)",
 			'button': "var(--button)",
 			'button_text': "var(--button-text)",
 			accent: "var(--text-accent)",
