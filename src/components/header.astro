@@ -1,8 +1,8 @@
 ---
 const pages = [
 	{ name: "Home", href: "/" },
-	{ name: "About", href: "/about"},
-	{ name: "Contact", href: "/Contact", disabled: true, soonDate: "Próximamente" }
+	{ name: "About", href: "/about", disabled: true, soonDate: "Tamo Viendo"},
+	{ name: "Contact", href: "/Contact", disabled: true, soonDate: "Tamo En Eso" }
 ].map((page) => ({
 	...page,
 	active: Astro.url.pathname === page.href,
