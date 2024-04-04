@@ -11,15 +11,15 @@ const pages = [
 
 ---
 
-<header class="h-20">
-    <nav class="group flex h-full w-full items-center justify-between px-10 lg:justify-center">
+<header class="h-5 sm:h-20">
+    <nav class="group flex h-full w-full items-center justify-between px-10 sm:justify-center">
 		{
 			pages.map(({ disabled, name, href, active, soonDate }, key) => (
 				<>
 					<a
 						href={href}
 						class:list={[
-							"nav-item relative hidden h-full select-none flex-col items-center justify-center gap-1 text-center text-xl lg:flex lg:px-7 xl:px-10",
+							"nav-item relative hidden h-full select-none flex-col items-center justify-center gap-1 text-center text-xl sm:flex sm:px-7",
 							{ "pointer-events-none": disabled },
 							{ "current-page ": active },
 							{ "text-text": !active },
@@ -37,6 +37,13 @@ const pages = [
 			))
         }
     </nav>
+
+	<div class="flex space-x-16 p-2 select-none items-center justify-center sm:hidden">
+		<h1>
+			<a href="/" class="text-3xl font-bold">WEIRD DEV</a>
+		</h1>
+		<div class="fa-solid fa-bars fa-xl" ></div>
+	</div>
 
     <div class="relative flex h-2 w-full items-center">
         <div
