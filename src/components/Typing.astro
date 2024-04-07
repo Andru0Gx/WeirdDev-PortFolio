@@ -1,0 +1,68 @@
+---
+
+
+---
+
+<p id="typingText" class="type_text overflow-hidden mx-auto tracking-widest text-nowrap">
+</p>
+
+<script>
+    // Array de strings a mostrar
+    import { TypingList } from '../consts/TypingText'
+
+    //Verificar si el dispositivo es movil
+    const isMobile = window.matchMedia("only screen and (max-width: 760px)").matches;
+
+    // Obtener la referencia al elemento <p> donde queremos mostrar el texto
+    const typingElement = document.getElementById("typingText");
+
+
+    // Función para animar el texto
+    function animateText(index: number) {
+        let text = TypingList[index];
+        let charIndex = 0;
+
+        // Función para escribir el texto
+        function type() {
+            if (charIndex < text.length) {
+                if (typingElement) {
+                    if (isMobile && charIndex === 31) typingElement.innerHTML += "<br>";
+                    typingElement.innerHTML += text.charAt(charIndex);
+                }
+
+                charIndex++;
+
+                setTimeout(type, 50); // Velocidad de escritura (en milisegundos)
+            } else {
+                // Una vez que se ha escrito todo el texto, borrarlo y pasar al siguiente
+                setTimeout(erase, 1000); // Esperar 1 segundo antes de borrar el texto
+            }
+        }
+
+        // Función para borrar el texto
+        function erase() {
+            if (charIndex >= 0) {
+                if (typingElement) {
+                    if (isMobile && charIndex === 31) typingElement.innerHTML = typingElement.innerHTML.substring(0, typingElement.innerHTML.length - 4);
+                    else typingElement.innerHTML = typingElement.innerHTML.substring(0, typingElement.innerHTML.length - 1);
+                }
+                charIndex--;
+                setTimeout(erase, 30); // Velocidad de borrado (en milisegundos)
+            } else {
+                // Una vez que se ha borrado todo el texto, pasar al siguiente texto (si hay alguno)
+                if (index < TypingList.length - 1) {
+                    setTimeout(() => animateText(index + 1), 500); // Esperar medio segundo antes de mostrar el siguiente texto
+                } else {
+                    // Si no hay más textos, reiniciar el ciclo mostrando el primer texto
+                    setTimeout(() => animateText(0), 500);
+                }
+            }
+        }
+
+        // Iniciar el efecto de escritura
+        type();
+    }
+
+    // Iniciar el ciclo mostrando el primer texto
+    animateText(0);
+</script>
