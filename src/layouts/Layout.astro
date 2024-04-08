@@ -1,43 +1,57 @@
 ---
+import "@fontsource-variable/onest";
 import Header from "../components/header.astro";
 import Footer from "../components/footer.astro";
+import { ViewTransitions } from "astro:transitions";
 
 interface Props {
     title: string;
+    description: string;
 }
 
-const { title } = Astro.props;
+const { title, description } = Astro.props;
 ---
 
 <!doctype html>
 <html lang="en">
     <head>
         <meta charset="UTF-8" />
-        <meta name="description" content="Astro description" />
+        <meta name="description" content={description} />
         <meta name="viewport" content="width=device-width" />
         <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
         <meta name="generator" content={Astro.generator} />
         <title>{title}</title>
+        <ViewTransitions />
     </head>
-    <body class="overflow-x-hidden">
+    <body
+        class="overflow-x-hidden [background:radial-gradient(125%_80%_at_50%_10%,#000_40%,#3d2a53_100%)]"
+    >
         <Header />
         <slot />
         <Footer />
+        <style is:global>
+            :root {
+                --bg: #0f0e17;
+                --headline: #fffffe;
+                --text: #a7a9be;
+                --button: #ff8906;
+                --button-text: #fffffe;
+                --text-accent: #f24c4c;
+            }
+            html {
+                font-family: "Onest Variable", sans-serif;
+                scroll-behavior: smooth;
+            }
+            body {
+                margin: 0;
+                padding: 0;
+                color: white;
+                background: var(--bg);
+
+                display: flex;
+                flex-direction: column;
+                min-height: 100vh;
+            }
+        </style>
     </body>
 </html>
-<style is:global>
-    :root {
-        --bg: #0f0e17;
-        --headline: #fffffe;
-        --text: #a7a9be;
-        --button: #ff8906;
-        --button-text: #fffffe;
-        --text-accent: #f24c4c;
-    }
-    body {
-        margin: 0;
-        padding: 0;
-        color: white;
-        background: var(--bg);
-    }
-</style>
