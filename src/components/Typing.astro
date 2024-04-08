@@ -1,21 +1,15 @@
----
-
-
----
-
-<p id="typingText" class="type_text overflow-hidden mx-auto tracking-widest text-nowrap">
+<p
+    id="typingText"
+    class="type_text overflow-hidden mx-auto tracking-widest text-nowrap h-12"
+>
 </p>
 
 <script>
     // Array de strings a mostrar
-    import { TypingList } from '../consts/TypingText'
-
-    //Verificar si el dispositivo es movil
-    const isMobile = window.matchMedia("only screen and (max-width: 760px)").matches;
+    import { TypingList } from "../consts/TypingText";
 
     // Obtener la referencia al elemento <p> donde queremos mostrar el texto
     const typingElement = document.getElementById("typingText");
-
 
     // Función para animar el texto
     function animateText(index: number) {
@@ -26,7 +20,6 @@
         function type() {
             if (charIndex < text.length) {
                 if (typingElement) {
-                    if (isMobile && charIndex === 31) typingElement.innerHTML += "<br>";
                     typingElement.innerHTML += text.charAt(charIndex);
                 }
 
@@ -43,8 +36,10 @@
         function erase() {
             if (charIndex >= 0) {
                 if (typingElement) {
-                    if (isMobile && charIndex === 31) typingElement.innerHTML = typingElement.innerHTML.substring(0, typingElement.innerHTML.length - 4);
-                    else typingElement.innerHTML = typingElement.innerHTML.substring(0, typingElement.innerHTML.length - 1);
+                    typingElement.innerHTML = typingElement.innerHTML.substring(
+                        0,
+                        typingElement.innerHTML.length - 1
+                    );
                 }
                 charIndex--;
                 setTimeout(erase, 30); // Velocidad de borrado (en milisegundos)
