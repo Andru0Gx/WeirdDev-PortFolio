@@ -1,7 +1,20 @@
-export const contacts = [
-    { tag: "Email", info: "Andres0rtiz@proton.me", svg: "envelope" },
-    { tag: "Telefono", info: "0000-0000000", svg: "phone" },
-    { tag: "Direccion", info: "Calle 1234, Ciudad, Pais", svg: "location-dot" },
+export const personalInfo = [
+    {
+        svg: "github",
+        URL: "https://github.com/Andru0Gx",
+        tag: "GitHub",
+        type: "brands",
+    },
+    {
+        svg: "linkedin",
+        URL: "https://linkedin.com/in/andres-ortiz-8803442b7",
+        tag: "Linkedin",
+        type: "brands",
+    },
+    {
+        svg: "file-contract",
+        URL: "/Andres_Ortiz_CV.pdf",
+        tag: "Download CV",
+        type: "solid",
+    },
 ];
-
-// ToDo - Add more Social Media links
