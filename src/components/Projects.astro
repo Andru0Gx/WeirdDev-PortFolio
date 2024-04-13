@@ -1,0 +1,74 @@
+---
+import { projects } from "@/consts/projects";
+---
+
+<div class="grid grid-cols-3 gap-10">
+    {
+        projects.map(
+            ({ poster, name, description, techStack, url, github }) => (
+                <div class="post rounded-3xl p-4 bg-[#2b2941] flex flex-col space-y-2 shadow-[0_0_10px_0_#fff] w-64">
+                    <img
+                        src={poster}
+                        alt={name}
+                        title={name}
+                        loading="lazy"
+                        class="size-56 rounded-2xl"
+                    />
+
+                    <div class="px-1">
+                        <h2 class="font-bold">{name}</h2>
+                        <p>{description}</p>
+                    </div>
+
+                    <div class="w-full flex flex-wrap gap-1">
+                        {techStack.map(({ id, name }) => (
+                            <div class="flex text-xs font-bold bg-bg text-white px-2 py-1 rounded-full w-fit space-x-2 ">
+                                <img
+                                    src={`img/${id}Logo.svg`}
+                                    alt={name}
+                                    title={name}
+                                    class="size-4"
+                                />
+
+                                <span>{name}</span>
+                            </div>
+                        ))}
+                    </div>
+
+                    <div class="flex space-x-5 justify-center">
+                        {github && (
+                            <a
+                                href={github}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                id="github"
+                            >
+                                <i class="fab fa-github" />
+                                <span>GitHub</span>
+                            </a>
+                        )}
+                        <a
+                            href={url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            id="url"
+                        >
+                            <i class="fas fa-external-link-alt " />
+                            <span>Preview</span>
+                        </a>
+                    </div>
+                </div>
+            )
+        )
+    }
+</div>
+
+<style>
+    .post {
+        transition: transform 0.3s ease-in-out;
+    }
+
+    .post:hover {
+        transform: scale(1.05);
+    }
+</style>
