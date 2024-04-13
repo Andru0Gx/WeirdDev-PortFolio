@@ -1,9 +1,5 @@
 export const StackList = [
     {
-        name: "Astro",
-        id: "astro",
-    },
-    {
         name: "HTML5",
         id: "html",
     },
@@ -16,8 +12,16 @@ export const StackList = [
         id: "javascript",
     },
     {
+        name: "Astro",
+        id: "astro",
+    },
+    {
         name: "TypeScript",
         id: "typescript",
+    },
+    {
+        name: "TailwindCSS",
+        id: "tailwindcss",
     },
     {
         name: "Python",
