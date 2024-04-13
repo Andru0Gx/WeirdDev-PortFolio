@@ -10,6 +10,19 @@ interface Props {
 }
 
 const { title, description } = Astro.props;
+
+const organizationSchema = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    url: "https://AndresOrtiz-Portfolio.vercel.app",
+    image: "./favicon.svg",
+    sameAs: "https://www.instagram.com/Andres0rtizz/",
+    logo: "./favicon.svg",
+    name: "Andres Ortiz Portfolio",
+    alternateName: "Andres Ortiz",
+    description:
+        "Andres Ortiz is a Frontend Developer and Designer based in Colombia. He specializes in building websites and applications that are fast, accessible, and responsive.",
+};
 ---
 
 <!doctype html>
@@ -32,6 +45,11 @@ const { title, description } = Astro.props;
         <script
             src="https://kit.fontawesome.com/1533ee2ebc.js"
             crossorigin="anonymous"></script>
+
+        <script
+            type="application/ld+json"
+            set:html={JSON.stringify(organizationSchema)}
+        />
     </head>
     <body
         class="overflow-x-hidden [background:radial-gradient(125%_80%_at_50%_10%,#000_40%,#3d2a53_100%)]"
