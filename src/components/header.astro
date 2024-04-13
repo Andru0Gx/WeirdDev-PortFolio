@@ -9,20 +9,16 @@ import { pages } from "../consts/Pages";
         class="flex rounded-full justify-evenly sm:justify-center text-paragraph m-5"
     >
         {
-            pages.map(({ disabled, name, href, label, status }) => (
+            pages.map(({ name, href, label }) => (
                 <>
                     <a
                         href={href}
                         class:list={[
                             "nav-item flex h-full select-none flex-col items-center justify-center gap-1 text-center sm:text-xl text-lg sm:px-7 font-bold mx-3 sm:mx-0",
-                            { "pointer-events-none": disabled },
                         ]}
                         aria-label={label}
                     >
                         {name}
-                        {status && (
-                            <span class="text-xs text-accent">{status}</span>
-                        )}
                     </a>
                 </>
             ))
