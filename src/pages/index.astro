@@ -4,6 +4,8 @@ import Sections from "@/components/Sections.astro";
 import TechStack from "@/components/TechStack.astro";
 
 import Typing from "@/components/Typing.astro";
+
+import Projects from "@/components/Projects.astro";
 ---
 
 <Layout title="Weird Dev" description="Portfolio">
@@ -16,8 +18,12 @@ import Typing from "@/components/Typing.astro";
             alt="Avatar"
             class="size-32 rounded-full border-2 border-accent sm:size-64"
         />
-        <h1 class="text-4xl font-bold">Andru0Gx</h1>
+        <h1 class="text-4xl font-bold">Andrés Ortiz</h1>
         <Typing />
         <TechStack />
+    </Sections>
+
+    <Sections id="projects" class="pb-32 flex items-center justify-center">
+        <Projects />
     </Sections>
 </Layout>
