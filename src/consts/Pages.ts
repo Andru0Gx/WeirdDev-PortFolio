@@ -4,8 +4,6 @@ export const pages = [
         name: "Projects",
         label: "projects",
         href: "#projects",
-        disabled: true,
-        status: "Coming Soon!",
     },
     {
         name: "Contact",
