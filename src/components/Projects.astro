@@ -2,11 +2,14 @@
 import { projects } from "@/consts/projects";
 ---
 
-<div class="grid grid-cols-3 gap-10">
+<div
+    class="grid gap-10 p-5 grid-flow-col overflow-x-auto lg:grid-cols-3 lg:grid-flow-row"
+    id="maindiv"
+>
     {
         projects.map(
             ({ poster, name, description, techStack, url, github }) => (
-                <div class="rounded-3xl p-4 bg-[#2b2941] flex flex-col space-y-2 shadow-[0_0_10px_0_#fff] w-64 hover:scale-105 transition-transform duration-300 ease-in-out">
+                <div class="projects rounded-3xl p-4 bg-[#2b2941] flex flex-col space-y-2 shadow-[0_0_10px_0_#fff] w-64">
                     <img
                         src={poster}
                         alt={name}
@@ -41,18 +44,12 @@ import { projects } from "@/consts/projects";
                                 href={github}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                id="github"
                             >
                                 <i class="fab fa-github" />
                                 <span>GitHub</span>
                             </a>
                         )}
-                        <a
-                            href={url}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            id="url"
-                        >
+                        <a href={url} target="_blank" rel="noopener noreferrer">
                             <i class="fas fa-external-link-alt " />
                             <span>Preview</span>
                         </a>
