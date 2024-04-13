@@ -6,7 +6,7 @@ import { projects } from "@/consts/projects";
     {
         projects.map(
             ({ poster, name, description, techStack, url, github }) => (
-                <div class="post rounded-3xl p-4 bg-[#2b2941] flex flex-col space-y-2 shadow-[0_0_10px_0_#fff] w-64">
+                <div class="rounded-3xl p-4 bg-[#2b2941] flex flex-col space-y-2 shadow-[0_0_10px_0_#fff] w-64 hover:scale-105 transition-transform duration-300 ease-in-out">
                     <img
                         src={poster}
                         alt={name}
@@ -62,13 +62,3 @@ import { projects } from "@/consts/projects";
         )
     }
 </div>
-
-<style>
-    .post {
-        transition: transform 0.3s ease-in-out;
-    }
-
-    .post:hover {
-        transform: scale(1.05);
-    }
-</style>
